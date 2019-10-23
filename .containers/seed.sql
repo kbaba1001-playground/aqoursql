@@ -1,3 +1,6 @@
+SET character_set_server = 'utf8mb4';
+SET collation_server = 'utf8mb4_unicode_ci';
+
 INSERT INTO organization (id, name) VALUES
   (1, '浦の星女学院'),
   (2, '函館聖泉女子高等学院');

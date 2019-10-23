@@ -6,7 +6,6 @@ services:
     ports:
       - "3316:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
       - ./.containers/aqoursql.sql:/docker-entrypoint-initdb.d/aqoursql.sql
       - ./.containers/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     environment:
@@ -22,7 +21,6 @@ services:
     ports:
       - "3317:3306"
     volumes:
-      - mysql-test-data:/var/lib/mysql
       - ./.containers/aqoursql.sql:/docker-entrypoint-initdb.d/aqoursql.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -30,9 +28,3 @@ services:
       MYSQL_PASSWORD: password123
       MYSQL_DATABASE: aqoursql_test
       TZ: "Asia/Tokyo"
-
-volumes:
-  mysql-data:
-    driver: local
-  mysql-test-data:
-    driver: local
