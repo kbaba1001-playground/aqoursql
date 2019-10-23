@@ -1,1 +1,8 @@
-{}
+{:duct.database.sql/hikaricp
+ {:jdbc-url "jdbc:mysql://localhost:3316/aqoursql?user=aqoursql_dev&password=password123"}
+ 
+ :duct.server/pedestal
+ {:service #:io.pedestal.http{:join? false}}
+ 
+ :aqoursql.graphql/service
+ {:options {:env :dev}}}

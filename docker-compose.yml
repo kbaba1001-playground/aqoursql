@@ -1,9 +1,35 @@
 version: "3"
-
 services:
-  postgres:
-    image: postgres:11.5
+  mysql:
+    image: mariadb:10.4.0
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
-      - "5439:5432"
+      - "3316:3306"
     volumes:
-      - ./containers/createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: aqoursql_dev
+      MYSQL_PASSWORD: password123
+      MYSQL_DATABASE: aqoursql
+      TZ: "Asia/Tokyo"
+
+  mysql-test:
+    image: mariadb:10.4.0
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3317:3306"
+    volumes:
+      - mysql-test-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: aqoursql_dev
+      MYSQL_PASSWORD: password123
+      MYSQL_DATABASE: aqoursql_test
+      TZ: "Asia/Tokyo"
+
+volumes:
+  mysql-data:
+    driver: local
+  mysql-test-data:
+    driver: local
