@@ -7,6 +7,8 @@ services:
       - "3316:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./.containers/aqoursql.sql:/docker-entrypoint-initdb.d/aqoursql.sql
+      - ./.containers/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: aqoursql_dev
@@ -21,6 +23,7 @@ services:
       - "3317:3306"
     volumes:
       - mysql-test-data:/var/lib/mysql
+      - ./.containers/aqoursql.sql:/docker-entrypoint-initdb.d/aqoursql.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: aqoursql_dev

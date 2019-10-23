@@ -1,0 +1,13 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "aqoursql",
+      "dialect": "MySQL",
+      "name": "dev",
+      "password": "password123",
+      "port": 3316,
+      "server": "localhost",
+      "username": "aqoursql_dev"
+    }
+  ]
+}
