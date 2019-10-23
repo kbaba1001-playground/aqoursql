@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:11.5
+    ports:
+      - "5439:5432"
+    volumes:
+      - ./containers/createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
