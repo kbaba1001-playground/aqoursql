@@ -5,7 +5,7 @@
   {:base-service #ig/ref :aqoursql.graphql/service
    :service #:io.pedestal.http{:join? true
                                :host #duct/env "SERVER_HOST"
-                               :port #duct/env ["SERVER_PORT" Int :or 8889]}}
+                               :port #duct/env ["SERVER_PORT" Int :or 8888]}}
 
   :aqoursql.graphql/schema {}
 
