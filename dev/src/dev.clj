@@ -27,7 +27,7 @@
 
 ;;; unit testing
 
-(defn test 
+(defn test
   ([]
    (eftest/run-tests (eftest/find-tests "test")
                      {:multithread? false}))
@@ -54,7 +54,7 @@
 
 (clojure.tools.namespace.repl/set-refresh-dirs "dev/src" "src" "test")
 
-(when (io/resource "local.slj")
+(when (io/resource "local.clj")
   (load "local"))
 
 (def profiles
