@@ -6,7 +6,6 @@
 
 ;;; DB access utilities
 
-; TODO search for clojure.spec
 (s/def ::spec any?)
 (s/def ::db (s/keys :req-un [::spec]))
 (s/def ::sql-map (s/map-of keyword? any?))
@@ -15,8 +14,10 @@
 (s/def ::row-count (s/and integer? (complement neg?)))
 (s/def ::row-id (s/and integer? pos?))
 
-(def quoting :mysql)
-(def identifier-quote \`)
+(def quoting
+  :mysql)
+(def identifier-quote
+  \`)
 
 (s/fdef select
   :args (s/cat :db ::db

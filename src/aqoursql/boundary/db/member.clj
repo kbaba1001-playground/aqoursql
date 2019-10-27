@@ -9,12 +9,13 @@
 (s/def ::id nat-int?)
 (s/def ::name string?)
 (s/def ::organization_id ::organization/id)
+
 (s/def ::organization_name ::organization/name)
 
 (s/def ::member
   (s/keys :req-un [::id
                    ::name
-                   ::organization]
+                   ::organization_id]
           :opt-un [::organization_name]))
 
 (s/fdef find-member-by-id
